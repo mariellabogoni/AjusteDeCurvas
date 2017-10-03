@@ -3,17 +3,30 @@
 FILE* leitura;
 
 void coeficientes(double x1[10], double y1[10])
-{	 double a0, a1;
-    int i;
-    float soma1=0, soma2=0;
+{	 ddouble a0, a1;
+    int i, n=10;
+    float soma1=0, soma2=0, soma3=0, soma4=0;
     
-    for(i=0;i<10;i++)
+    for(i=0;i<n;i++)
     {   
        soma1 = soma1 + x[i]*x[i];
-       
+       soma2 = soma2 + y1[i];
+       soma3 = soma3 + x[i]*y1[i];
+       soma4 = soma4 + x[i];
     
-     
-    }
+    }   
+    printf("\nSoma1 =%.2f\n", soma1);
+    printf("\nSoma2 = %.2f\n", soma2);
+    printf("\nSoma3 = %.2f\n", soma3);
+    printf("\nSoma4 = %.2f\n", soma4);
+       
+    a0 = ( (soma1*soma2) - (soma3*soma4) ) / ( (n*soma1) - (soma4*soma4) );
+    a1 = ( (n*soma3) - (soma4*soma2) ) / ( (n*soma1) - (soma4*soma4) );
+    
+    printf("\nCoeficientes encontrados:\n");
+    printf("a0 = %f\n", a0);
+    printf("a1 = %f\n", a1);  
+
 
 }
 int main()
